@@ -1,3 +1,42 @@
+<?php
+include 'mysql.php';
+
+if (isset($_POST["TenantAdd"])) {
+    $TenFname = $_POST["TenFname"];
+    $TenLname = $_POST["TenLname"];
+    $TenMname = $_POST["TenMname"];
+    $TenHouseNum = $_POST["TenHouseNum"];
+    $TenSt = $_POST["TenSt"];
+    $TenBarangay = $_POST["TenBarangay"];
+    $TenCity = $_POST["TenCity"];
+    $TenProv = $_POST["TenProv"];
+    $TenConNum = $_POST["TenConNum"];
+    $TenEmail = $_POST["TenEmail"];
+    $TenBdate = $_POST["TenBdate"];
+    $TenGender = $_POST["TenGender"];
+    $EmConFname = $_POST["EmConFname"];
+    $EmConLname = $_POST["EmConLname"];
+    $EmConMname = $_POST["EmConMname"];
+    $EmConNum = $_POST["EmConNum"];
+    $sql = "INSERT INTO TENANT (TenFname, TenLname, TenMname, TenHouseNum, TenSt, TenBarangay, TenCity, TenProv, TenConNum, TenEmail, TenBdate, TenGender, EmConFname, EmConLname, EmConMname, EmConNum) VALUES ('$TenFname', '$TenLname', '$TenMname', '$TenHouseNum', '$TenSt', '$TenBarangay', '$TenCity', '$TenProv', '$TenConNum', '$TenEmail', '$TenBdate', '$TenGender', '$EmConFname', '$EmConLname', '$EmConMname', '$EmConNum')";
+    
+    if (!in_array($TenGender, ['M', 'F'])) {
+        echo '<script>alert("Invalid gender value. Please select either Male or Female.");</script>';
+        exit;
+    }
+
+    if ($conn->query($sql) === TRUE) {
+        echo '<script>alert("New Tenant created successfully");</script>';
+    } else {
+        echo '<script>alert("Error: ' . $sql . ' <br> ' . $conn->error . '");</script>';
+    }
+
+    $conn->close();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
