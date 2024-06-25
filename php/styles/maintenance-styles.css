@@ -1,0 +1,204 @@
+body {
+  display: flex;
+  margin: 0;
+  height: 100vh;
+  background-color: white;
+  user-select: none;
+}
+
+.mallanna-regular {
+  font-family: "Mallanna", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  display: flex;
+}
+
+/* <!---------------------------------------- Sidebar Things ---------------------------------------->  */
+.sidebar {
+  width: 250px;
+  background-color: #2b4c7e;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 20px 0 0 0;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+ul li a:hover,
+ul li a.active {
+  background-color: white;
+  color: #2b4c7e;
+}
+
+.signout a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #2b41c0;
+}
+
+.signout a:hover {
+  background-color: #2826a9;
+}
+
+/* <!---------------------------------------- Main Things ----------------------------------------> */
+.Content {
+  font-family: "Mallanna", sans-serif;
+  background-color: white;
+  margin: 15px;
+  border-radius: 20px;
+  width: 200vh;
+  box-shadow: 0 0 0 35px #2b4c7e;
+  padding: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.header {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 5px;
+  color: #2b4c7e;
+}
+
+.header p {
+  margin: 0 0 15px 5px;
+  color: #555;
+}
+
+.buttons button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #2b4c7e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #1e3a66;
+}
+
+.overview {
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-maintenance {
+  background-color: #2e3a87;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f0f0f0;
+}
+
+table td {
+  background-color: #fff;
+}
+
+/* <!---------------------------------------- Modal Things ---------------------------------------->  */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  flex-grow: 1;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
