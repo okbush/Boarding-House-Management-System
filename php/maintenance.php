@@ -21,7 +21,7 @@
         <ul class="w-100">
             <li><a href="dashboard.php"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Dashboard</a></li>
             <li><a href="#statistics"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistics</a></li>
-            <li><a href="#residents"><i class="fa fa-address-book-o" aria-hidden="true"></i> Residents</a></li>
+            <li><a href="tenants.php"><i class="fa fa-address-book-o" aria-hidden="true"></i> Tenants</a></li>
             <li><a href="#rooms"><i class="fa fa-bed" aria-hidden="true"></i> Room Logs</a></li>
             <li><a href="#bills"><i class="fa fa-credit-card" aria-hidden="true"></i> Billings</a></li>
             <li><a href="maintenance.php" class="active"><i class="fa fa-wrench" aria-hidden="true"></i> Maintenance</a>
