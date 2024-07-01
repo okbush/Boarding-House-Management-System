@@ -121,11 +121,6 @@ ul li a.active {
   background-color: #1e3a66;
 }
 
-.overview {
-  display: flex;
-  justify-content: space-around;
-}
-
 .add-maintenance {
   background-color: #2e3a87;
   color: white;
@@ -160,6 +155,27 @@ table th {
 table td {
   background-color: #fff;
 }
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page.active {
+  background-color: #2b4c7e;
+  color: white;
+}
+
 
 /* <!---------------------------------------- Modal Things ---------------------------------------->  */
 .modal {
