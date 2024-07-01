@@ -60,8 +60,7 @@ if (isset($_POST["TenantAdd"])) {
         </div>
 
         <ul class="w-100">
-            <li><a href="dashboard.php" class="active"><i class="fa fa-envelope-open-o"
-                        aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="dashboard.php" class="active"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>Dashboard</a></li>
             <li><a href="#statistics"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistics</a></li>
             <li><a href="tenants.php"><i class="fa fa-address-book-o" aria-hidden="true"></i> Tenants</a></li>
             <li><a href="#rooms"><i class="fa fa-bed" aria-hidden="true"></i> Room Logs</a></li>
@@ -81,141 +80,128 @@ if (isset($_POST["TenantAdd"])) {
                 <h1>Welcome Back, User!</h1>
                 <p>Here's what we have for you today!</p>
                 <div class="buttons">
-                <button id="addTenant">Add Tenant</button>
-                <div id="Tenadd" class="modal">
-                    <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Add New Tenant</h2>
-                      <form>
-                        <div class="form-group">
-                            <label for="firstName">Name:</label>
-                            <input type="text" id="firstName" placeholder="First Name">
-                            <input type="text" id="middleName" placeholder="Middle Name">
-                            <input type="text" id="lastName" placeholder="Last Name">
+                    <button id="addTenant">Add Tenant</button>
+                    <div id="Tenadd" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Add New Tenant</h2>
+                            <form>
+                                <div class="form-group">
+                                    <label for="firstName">Name:</label>
+                                    <input type="text" id="firstName" placeholder="First Name">
+                                    <input type="text" id="middleName" placeholder="Middle Name">
+                                    <input type="text" id="lastName" placeholder="Last Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthDate">Birth Date:</label>
+                                    <input type="date" id="birthDate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender:</label>
+                                    <select id="gender">
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactNumber">Contact Number:</label>
+                                    <input type="text" id="contactNumber" placeholder="+63 9615053922">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" placeholder="mdetablurs@gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address:</label>
+                                    <input type="text" id="houseNumber" placeholder="House No.">
+                                    <input type="text" id="street" placeholder="Street">
+                                    <input type="text" id="barangay" placeholder="Barangay">
+                                    <input type="text" id="city" placeholder="City">
+                                    <input type="text" id="province" placeholder="Province">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emergencyContactName">Emergency Contact Name:</label>
+                                    <input type="text" id="emergencyContactName" placeholder="First Name">
+                                    <input type="text" id="emergencyContactMiddleInitial" placeholder="M">
+                                    <input type="text" id="emergencyContactLastName" placeholder="Last Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emergencyContactNumber">Emergency Contact Number:</label>
+                                    <input type="text" id="emergencyContactNumber" placeholder="+63 123456788">
+                                </div>
+                                
+                                <button type="submit">Add New Tenant</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="birthDate">Birth Date:</label>
-                            <input type="date" id="birthDate">
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Gender:</label>
-                            <select id="gender">
-                                <option value="M">M</option>
-                                <option value="F">F</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="contactNumber">Contact Number:</label>
-                            <input type="text" id="contactNumber" placeholder="+63 9615053922">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" placeholder="mdetablurs@gmail.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address:</label>
-                            <input type="text" id="houseNumber" placeholder="House No.">
-                            <input type="text" id="street" placeholder="Street">
-                            <input type="text" id="barangay" placeholder="Barangay">
-                            <input type="text" id="city" placeholder="City">
-                            <input type="text" id="province" placeholder="Province">
-                        </div>
-                        <div class="form-group">
-                            <label for="emergencyContactName">Emergency Contact Name:</label>
-                            <input type="text" id="emergencyContactName" placeholder="First Name">
-                            <input type="text" id="emergencyContactMiddleInitial" placeholder="M">
-                            <input type="text" id="emergencyContactLastName" placeholder="Last Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="emergencyContactNumber">Emergency Contact Number:</label>
-                            <input type="text" id="emergencyContactNumber" placeholder="+63 123456788">
-                        </div>
-                        
-                        <button type="submit">Add New Tenant</button>
-                    </form>
-
-
                     </div>
 
+                    <button id="addPayment">Add Payment</button>
+                    <div id="Payadd" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form>
+                                <label for="tenant-list">List of Tenants:</label>
+                                <select id="tenant-list" name="tenant-list">
+                                    <option value="maria-detablurs">Maria P. Detablurs</option>
+                                </select>
 
-                </div>
+                                <label for="first-name">First Name:</label>
+                                <input type="text" id="first-name" name="first-name" value="Maria">
 
-                <button id="addPayment">Add Payment</button>
-                <div id="Payadd" class="modal">
+                                <label for="middle-name">Middle Name:</label>
+                                <input type="text" id="middle-name" name="middle-name" value="Pia">
 
-                    <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <form>
-                        <label for="tenant-list">List of Tenants:</label>
-                        <select id="tenant-list" name="tenant-list">
-                            <option value="maria-detablurs">Maria P. Detablurs</option>
-                        </select>
-        
-                        <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" name="first-name" value="Maria">
-        
-                        <label for="middle-name">Middle Name:</label>
-                        <input type="text" id="middle-name" name="middle-name" value="Pia">
-        
-                        <label for="last-name">Last Name:</label>
-                        <input type="text" id="last-name" name="last-name" value="Detablurs">
-        
-                        <label for="payment-amount">Payment Amount:</label>
-                        <input type="text" id="payment-amount" name="payment-amount" value="600.00">
-        
-                        <label for="payment-method">Payment Method:</label>
-                        <select id="payment-method" name="payment-method">
-                            <option value="cash">Cash</option>
-                        </select>
-        
-                        <label for="payment-date">Payment Date:</label>
-                        <input type="text" id="payment-date" name="payment-date" value="May 1, 2024 - May 31, 2024">
-        
-                        <button type="submit" class="add-btn">Add</button>
-                    </form>
+                                <label for="last-name">Last Name:</label>
+                                <input type="text" id="last-name" name="last-name" value="Detablurs">
+
+                                <label for="payment-amount">Payment Amount:</label>
+                                <input type="text" id="payment-amount" name="payment-amount" value="600.00">
+
+                                <label for="payment-method">Payment Method:</label>
+                                <select id="payment-method" name="payment-method">
+                                    <option value="cash">Cash</option>
+                                </select>
+
+                                <label for="payment-date">Payment Date:</label>
+                                <input type="text" id="payment-date" name="payment-date" value="May 1, 2024 - May 31, 2024">
+
+                                <button type="submit" class="add-btn">Add</button>
+                            </form>
+                        </div>
                     </div>
-                  
-                </div>
 
+                    <button id="addRent">Add New Rent</button>
+                    <div id="Rentadd" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form>
+                                <label for="tenant">Tenant Assigned:</label>
+                                <input type="text" id="tenant" name="tenant" value="Maria P. Detablurs">
 
+                                <label for="rent-start">Rent Start:</label>
+                                <input type="date" id="rent-start" name="rent-start">
 
-                <button id="addRent">Add New Rent</button>
-                <div id="Rentadd" class="modal">
+                                <label for="rent-end">Rent End:</label>
+                                <input type="date" id="rent-end" name="rent-end">
 
-                    <div class="modal-content">
-                      <span class="close">&times;</span>
+                                <label for="room-number">Room Number:</label>
+                                <input type="text" id="room-number" name="room-number">
 
+                                <label for="room-type">Room Type:</label>
+                                <input type="text" id="room-type" name="room-type">
 
-                    <form>
-                <label for="tenant">Tenant Assigned:</label>
-                <input type="text" id="tenant" name="tenant" value="Maria P. Detablurs">
+                                <label for="bed-number">Bed Number:</label>
+                                <input type="text" id="bed-number" name="bed-number">
 
-                <label for="room-code">Room Details:</label>
-                <select id="room-code" name="room-code">
-                    <option value="B10200">B10200</option>
-                </select>
-                <select id="occupancy-type" name="occupancy-type">
-                    <option value="bed-spacer">Bed-spacer</option>
-                </select>
-
-                <label for="starting-date">Starting Date:</label>
-                <input type="date" id="starting-date" name="starting-date" value="2024-04-01">
-
-                <label for="payment-total">Payment Total:</label>
-                <input type="text" id="payment-total" name="payment-total" value="600.00">
-
-                <button type="submit" class="add-btn">Add</button>
-            </form>
+                                <button type="submit" class="add-btn">Add</button>
+                            </form>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
-        </div>
 
-
-            <!-- Overview Section -->
             <div class="overview">
-                <div class="card">
+                <div class="card" id="total-residents-card">
                     <div class="icon">
                         <img src="icons/total-residents-icon.png" alt="Total Residents Icon">
                     </div>
@@ -256,52 +242,36 @@ if (isset($_POST["TenantAdd"])) {
     </div>
 
     <script>
-        document.getElementById("addTenant").addEventListener("click", addTenant);
-        document.getElementById("addPayment").addEventListener("click", addPayment);
-        document.getElementById("addRent").addEventListener("click", addRent);
+        document.getElementById("total-residents-card").addEventListener("click", function() {
+            window.location.href = "tenants.php";
+        });
 
-        function addTenant() {
-            var modal = document.getElementById("Tenadd");
-            var span = modal.getElementsByClassName("close")[0];
-            modal.style.display = "block";
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        }
+        // Modal logic
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.querySelector('.close').onclick = () => modal.style.display = 'none';
+        });
 
-        function addPayment() {
-            var modal = document.getElementById("Payadd");
-            var span = modal.getElementsByClassName("close")[0];
-            modal.style.display = "block";
-            span.onclick = function () {
-                modal.style.display = "none";
+        window.onclick = (event) => {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
             }
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        }
+        };
 
-        function addRent() {
-            var modal = document.getElementById("Rentadd");
-            var span = modal.getElementsByClassName("close")[0];
-            modal.style.display = "block";
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        }
+        document.getElementById('addTenant').onclick = () => {
+            document.getElementById('Tenadd').style.display = 'block';
+        };
+
+        document.getElementById('addPayment').onclick = () => {
+            document.getElementById('Payadd').style.display = 'block';
+        };
+
+        document.getElementById('addRent').onclick = () => {
+            document.getElementById('Rentadd').style.display = 'block';
+        };
+
     </script>
+
 </body>
 
 </html>
+
