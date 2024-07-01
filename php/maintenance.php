@@ -26,7 +26,7 @@
             <li><a href="#bills"><i class="fa fa-credit-card" aria-hidden="true"></i> Billings</a></li>
             <li><a href="maintenance.php" class="active"><i class="fa fa-wrench" aria-hidden="true"></i> Maintenance</a>
             </li>
-            <li><a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+            <li><a href="settings.php"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
         </ul>
 
         <div class="signout">
