@@ -176,8 +176,30 @@ ul li a.active {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 70%; /* Adjusted width to make it narrower */
+  max-width: 700px; /* Set a maximum width to ensure it doesn't get too wide on larger screens */
   flex-grow: 1;
+  max-height: 80vh; /* Set a maximum height for the modal content */
+  overflow-y: auto; /* Make the modal content scrollable */
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column; /* Changed to column for top to bottom alignment */
+}
+
+.modal-content form label {
+  margin: 10px 0 5px 0; /* Added margin for spacing */
+}
+
+.modal-content form input,
+.modal-content form select {
+  width: 100%; /* Set full width for stacked look */
+  padding: 8px;
+  margin-bottom: 10px; /* Added margin for spacing */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
 }
 
 /* The Close Button */
