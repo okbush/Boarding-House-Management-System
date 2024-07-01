@@ -88,8 +88,6 @@ ul li a.active {
 
 .header {
   display: block;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -167,8 +165,6 @@ ul li a.active {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  justify-content: center;
-  align-items: center;
 }
 
 /* Modal Content */
@@ -216,8 +212,4 @@ ul li a.active {
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
-
-.dashboard {
-  display: flex;
 }
