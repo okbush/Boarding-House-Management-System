@@ -66,7 +66,7 @@ if (isset($_POST["TenantAdd"])) {
             <li><a href="#rooms"><i class="fa fa-bed" aria-hidden="true"></i> Room Logs</a></li>
             <li><a href="#bills"><i class="fa fa-credit-card" aria-hidden="true"></i> Billings</a></li>
             <li><a href="maintenance.php"><i class="fa fa-wrench" aria-hidden="true"></i> Maintenance</a></li>
-            <li><a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+            <li><a href="settings.php"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
         </ul>
 
         <div class="signout">
