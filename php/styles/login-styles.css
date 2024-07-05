@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Mallanna', Arial, sans-serif;
+    background: url('login_background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background-color: #344799;
+    padding: 20px 30px; /* Adjusted padding for a more compact look */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+    width: 350px; /* Adjusted width to match the provided image */
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px; /* Adjusted for better spacing */
+    margin-top: 10%; /* Adjusted for better alignment */
+}
+
+.logo {
+    width: 250px; /* Adjusted width for the logo */
+}
+
+.login-box h2 {
+    font-size: 24px;
+    margin-bottom: 20px; /* Ensuring consistent spacing */
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: calc(100% - 20px); /* Adjusted width to ensure padding is considered */
+    padding: 10px;
+    margin: 10px 0 ;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    box-sizing: border-box; /* Ensures padding is included in the total width */
+
+}
+
+.login-box button {
+    width: calc(100% - 20px); /* Adjusted width to ensure padding is considered */
+    padding: 10px;
+    background-color: #172564;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    box-sizing: border-box; /* Ensures padding is included in the total width */
+
+}
+
+.login-box button:hover {
+    background-color: #333;
+}
+
+.login-box .forgot-password {
+    display: block;
+    margin-top: 10px;
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-box .forgot-password:hover {
+    text-decoration: underline;
+}
