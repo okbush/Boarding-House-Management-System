@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boarding House Management Dashboard</title>
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mallanna&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
     <link rel="stylesheet" href="styles/dashboard-styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -14,6 +17,7 @@
 </head>
 
 <body>
+    <!-- sidebar for navigation -->
     <div class="sidebar">
         <div class="logo">
             <img src="icons/logo.png" alt="Munoz Boarding House Logo">
@@ -28,9 +32,6 @@
             <li><a href="settings.php"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
         </ul>
 
-        <div class="signout">
-            <a href="login.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a>
-        </div>
     </div>
 
     <div class="Content">
@@ -40,12 +41,13 @@
                 <p>Here's what we have for you today!</p>
                 <div class="buttons">
 
-                    <!------------------------------------------------------------ Tenant Modal ------------------------------------------------------------>
+                    <!-- add tenant modal -->
                     <button id="addTenant">Add Tenant</button>
                     <div id="Tenadd" class="modal">
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <h2>Add New Tenant</h2>
+
                             <form method="post" action='addNew/addTenant.php'>
 
                                 <div class="form-group">
@@ -55,10 +57,12 @@
                                         required>
                                     <input type="text" id="lastName" name="TenLname" placeholder="Last Name" required>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="birthDate">Birth Date:</label>
                                     <input type="date" name="TenBdate" id="birthDate" required>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="gender">Gender:</label>
                                     <select id="gender" name="TenGender" required>
@@ -67,15 +71,18 @@
                                         <option value="F">F</option>
                                     </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="contactNumber">Contact Number:</label>
                                     <input type="text" id="contactNumber" name="TenConNum" placeholder="+63" required>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="email">Email:</label>
                                     <input type="email" id="email" name="TenEmail" placeholder="sample@mail.com"
                                         required>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="address">Address:</label>
                                     <input type="text" id="houseNumber" name="TenHouseNum" placeholder="House No."
@@ -85,6 +92,7 @@
                                     <input type="text" id="city" name="TenCity" placeholder="City" required>
                                     <input type="text" id="province" name="TenProv" placeholder="Province" required>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="emergencyContactName">Emergency Contact Name:</label>
                                     <input type="text" id="emergencyContactFirstName" name="EmConFname"
@@ -94,22 +102,23 @@
                                     <input type="text" id="emergencyContactLastName" name="EmConLname"
                                         placeholder="Last Name" required>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="emergencyContactNumber">Emergency Contact Number:</label>
                                     <input type="text" id="emergencyContactNumber" name="EmConNum" placeholder="+63"
                                         required>
                                 </div>
+
                                 <button type="submit"
                                     onclick='return confirm("Are you sure you want to add this Tenant?")'>Add
                                     Tenant</button>
-
 
                             </form>
                         </div>
                     </div>
 
 
-                    <!------------------------------------------------------------ Occupancy Modal ------------------------------------------------------------>
+                    <!-- create occupancy modal -->
                     <button id="addRent">Create Occupancy</button>
                     <div id="Rentadd" class="modal">
                         <div class="modal-content">
@@ -121,6 +130,7 @@
                                 <select id="tenantID" name="TenantID" required>
                                     <option value="" disabled selected>Select Tenant</option>
 
+                                    <!-- PHP code to fetch tenants without active occupancy -->
                                     <?php
                                     include 'mysql.php';
 
@@ -146,12 +156,11 @@
 
                                 </select>
 
-
-
                                 <label for="room-code">Occupancy Details:</label>
                                 <select id="occupancy-type" name="occupancy-type" onchange="RentFunctions()" required>
                                     <option value="" disabled selected>Select Occupancy Type</option>
 
+                                    <!-- PHP code to fetch occupancy types -->
                                     <?php
                                     include 'mysql.php';
 
@@ -170,11 +179,11 @@
 
                                 </select>
 
-
                                 <div id="spacer" style="display: none;">
                                     <select id="bedspacer" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
+                                        <!-- PHP code to fetch empty/shared rooms -->
                                         <?php
                                         include 'mysql.php';
 
@@ -199,11 +208,11 @@
                                 </div>
 
 
-
                                 <div id="roomer4" style="display: none;">
                                     <select id="room4" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
+                                        <!-- PHP code to fetch empty rooms -->
                                         <?php
                                         include 'mysql.php';
 
@@ -224,11 +233,11 @@
                                 </div>
 
 
-
                                 <div id="roomer6" style="display: none;">
                                     <select id="room6" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
+                                        <!-- PHP code to fetch empty rooms -->
                                         <?php
                                         include 'mysql.php';
 
@@ -355,34 +364,53 @@
                 </div>
             </div>
 
-        <!-- overview/cards -->
+            <!-- overview/cards -->
             <div class="overview">
                 <div class="card">
+
+                    <?php
+                    include 'mysql.php';
+
+                    // PHP code to fetch the total number of vacant rooms
+                    $sql_total_residents = "SELECT COUNT(*) AS total_residents FROM tenant";
+                    $result_total_residents = $conn->query($sql_total_residents);
+                    $total_residents = ($result_total_residents->num_rows > 0) ? $result_total_residents->fetch_assoc()['total_residents'] : 0;
+
+                    // PHP code to fetch the total number of available rooms
+                    $sql_available_rooms = "SELECT COUNT(roomID) AS available_rooms FROM rooms WHERE NumofTen < Capacity";
+
+                    $result_available_rooms = $conn->query($sql_available_rooms);
+                    $available_rooms = ($result_available_rooms->num_rows > 0) ? $result_available_rooms->fetch_assoc()['available_rooms'] : 0;
+
+                    $conn->close();
+                    ?>
+
                     <div class="icon">
                         <img src="icons/total-residents-icon.png" alt="Total Residents Icon">
                     </div>
                     <div class="info">
-                        <h2>30</h2>
+                        <h2><?php echo $total_residents; ?></h2>
                         <p>Total Residents</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="icon">
-                        <img src="icons/available-rooms-icon.png" alt="Available Rooms Icon">
-                    </div>
-                    <div class="info">
-                        <h2>02</h2>
-                        <p>Available Rooms</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="icon">
+                        <img src="icons/available-rooms-icon.png" alt="Available Rooms Icon">
+                    </div>
+                    <div class="info">
+                        <h2><?php echo $available_rooms; ?></h2>
+                        <p>Available Rooms</p>
+                    </div>
+                </div>
+
+                <!--daph: hardcoded. update when billings is final-->
+                <div class="card">
+                    <div class="icon">
                         <img src="icons/unpaid-bills-icon.png" alt="Unpaid Bills Icon">
                     </div>
                     <div class="info">
-                        <h2>02</h2>
+                        <h2>0</h2>
                         <p>Unpaid Bills</p>
                     </div>
                 </div>
@@ -392,7 +420,7 @@
                         <img src="icons/overdue-balances-icon.png" alt="Overdue Balances Icon">
                     </div>
                     <div class="info">
-                        <h2>02</h2>
+                        <h2>0</h2>
                         <p>Overdue Balances</p>
                     </div>
                 </div>
@@ -474,7 +502,6 @@
                     }
                 }
             };
-
             xhr.open("GET", "addNew/occrate.php?occtype=" + encodeURIComponent(selectedType), true);
             xhr.send();
         }
