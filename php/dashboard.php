@@ -298,7 +298,9 @@
                             </form>
                         </div>
                     </div>
-                    <!------------------------------------------------------------ Payment Modal ------------------------------------------------------------>
+
+
+                    <!-- add payment modal -->
                     <button id="addPayment">Add Payment</button>
                     <div id="Payadd" class="modal">
                         <div class="modal-content">
