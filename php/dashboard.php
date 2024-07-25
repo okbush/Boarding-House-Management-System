@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-
     <link rel="stylesheet" href="styles/dashboard-styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -130,10 +129,10 @@
                                 <select id="tenantID" name="TenantID" required>
                                     <option value="" disabled selected>Select Tenant</option>
 
-                                    <!-- PHP code to fetch tenants without active occupancy -->
                                     <?php
                                     include 'mysql.php';
 
+                                    // SQL query to fetch tenants who do not have an active occupancy
                                     $sql = "SELECT DISTINCT t.TenantID, CONCAT(t.TenFname, ' ', t.TenMname, ' ', t.TenLname) AS name
                                         FROM tenant t
                                         LEFT JOIN occupancy o ON t.TenantID = o.TenantID
@@ -160,10 +159,10 @@
                                 <select id="occupancy-type" name="occupancy-type" onchange="RentFunctions()" required>
                                     <option value="" disabled selected>Select Occupancy Type</option>
 
-                                    <!-- PHP code to fetch occupancy types -->
                                     <?php
                                     include 'mysql.php';
 
+                                    // SQL query to fetch occupancy types and their rates
                                     $sql = "SELECT Occtype, OccRate FROM occtype";
                                     $result = $conn->query($sql);
 
@@ -183,10 +182,10 @@
                                     <select id="bedspacer" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
-                                        <!-- PHP code to fetch empty/shared rooms -->
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch empty or shared rooms
                                         $sql = "SELECT RoomID, Capacity, NumofTen, RoomType FROM rooms WHERE RoomType = 'Empty' OR RoomType = 'Shared'";
                                         $result = $conn->query($sql);
 
@@ -212,10 +211,10 @@
                                     <select id="room4" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
-                                        <!-- PHP code to fetch empty rooms -->
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch empty rooms with capacity of 4
                                         $sql = "SELECT RoomID, Capacity, NumofTen, RoomType FROM rooms WHERE RoomType = 'Empty' AND Capacity = '4'";
                                         $result = $conn->query($sql);
 
@@ -237,10 +236,10 @@
                                     <select id="room6" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
-                                        <!-- PHP code to fetch empty rooms -->
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch empty rooms with capacity of 6
                                         $sql = "SELECT RoomID, Capacity, NumofTen, RoomType FROM rooms WHERE RoomType = 'Empty' AND Capacity = '6'";
                                         $result = $conn->query($sql);
 
@@ -258,7 +257,6 @@
                                 </div>
 
 
-
                                 <div id="sharer" style="display: none;">
                                     <select id="sharerID" name="RoomID">
                                         <option value="" disabled selected>Select Roomer</option>
@@ -266,6 +264,7 @@
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch active sharers                                        
                                         $sql = "SELECT CONCAT(t.TenFname, ' ', t.TenMname, ' ', t.TenLname) AS name, r.Capacity, r.NumofTen, r.RoomID
                                         FROM occupancy o JOIN tenant t ON o.TenantID = t.TenantID JOIN rooms r ON o.RoomID = r.RoomID
                                         WHERE (o.OccStatus = 'Active' AND o.Occtype = 'Room(4 beds)') OR (o.OccStatus = 'Active' AND o.Occtype = 'Room(6 beds)')
@@ -312,10 +311,10 @@
                                 <select id="tenant-list" name="TenantID">
                                     <option value="" disabled selected>Select Tenant</option>
 
-
                                     <?php
                                     include 'mysql.php';
 
+                                    // SQL query to fetch all tenants
                                     $sql = "SELECT TenantID, CONCAT(TenFname, ' ', TenMname, ' ', TenLname) AS name FROM tenant";
                                     $result = $conn->query($sql);
 
@@ -406,13 +405,28 @@
                     </div>
                 </div>
 
-                <!--daph: hardcoded. update when billings is final-->
+
+                <?php
+                include 'mysql.php';
+
+                // Fetch Unpaid Bills
+                $unpaid_bills_query = "SELECT COUNT(*) AS unpaid_bills_count, SUM(DueAmount) AS unpaid_bills_amount FROM billing WHERE BillStatus = 'Unpaid'";
+                $unpaid_bills_result = mysqli_query($conn, $unpaid_bills_query);
+                $unpaid_bills_data = mysqli_fetch_assoc($unpaid_bills_result);
+
+                // Fetch Overdue Bills
+                $current_date = date('Y-m-d');
+                $overdue_bills_query = "SELECT COUNT(*) AS overdue_bills_count, SUM(DueAmount) AS overdue_bills_amount FROM billing WHERE BillStatus = 'Unpaid' AND BillDueDate < '$current_date'";
+                $overdue_bills_result = mysqli_query($conn, $overdue_bills_query);
+                $overdue_bills_data = mysqli_fetch_assoc($overdue_bills_result);
+                ?>
+
                 <div class="card">
                     <div class="icon">
                         <img src="icons/unpaid-bills-icon.png" alt="Unpaid Bills Icon">
                     </div>
                     <div class="info">
-                        <h2>0</h2>
+                        <h2><?php echo $unpaid_bills_data['unpaid_bills_count']; ?></h2>
                         <p>Unpaid Bills</p>
                     </div>
                 </div>
@@ -422,7 +436,7 @@
                         <img src="icons/overdue-balances-icon.png" alt="Overdue Balances Icon">
                     </div>
                     <div class="info">
-                        <h2>0</h2>
+                        <h2><?php echo $overdue_bills_data['overdue_bills_count']; ?></h2>
                         <p>Overdue Balances</p>
                     </div>
                 </div>
@@ -431,6 +445,7 @@
     </div>
 
     <script>
+        // Event listeners for opening modals
         document.getElementById("addTenant").addEventListener("click", addTenant);
         document.getElementById("addPayment").addEventListener("click", addPayment);
         document.getElementById("addRent").addEventListener("click", addRent);
