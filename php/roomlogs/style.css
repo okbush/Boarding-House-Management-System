@@ -1,0 +1,254 @@
+body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    background-color: white;
+    user-select: none;
+    color: #2b4c7e;
+    font-family: "Mallanna", sans-serif;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2b4c7e;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.logo img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 20px 0 0 0;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+ul li a:hover,
+ul li a.active {
+    background-color: white;
+    color: #2b4c7e;
+}
+
+.Content {
+    font-family: "Mallanna", sans-serif;
+    background-color: white;
+    margin: 15px;
+    border-radius: 20px;
+    width: 200vh;
+    box-shadow: 0 0 0 35px #2b4c7e;
+    padding: 30px;
+    font-family: "Mallanna", sans-serif;
+    color: #2b4c7e;
+    overflow: auto;
+  }
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 5px;
+    color: #2b4c7e;
+}
+
+.header p {
+    margin: 0 0 15px 5px;
+    color: #555;
+}
+
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #2b4c7e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #1e3a66;
+}
+
+.room-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 300px);
+    overflow: hidden;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.CB1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.room-card {
+    background-color: #edf6f7;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(25% - 20px);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 140px;
+    margin-bottom: 5px;
+    border: #cfcfcf solid 1px;
+}
+
+.room-card table {
+    width: 100%;
+}
+
+.room-card p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 30px;
+    color: #1e3a66;
+}
+
+.info-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.info-btn:hover {
+    color: #007bff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #edf6f7;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    height: auto;
+    width: 100%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.close {
+    color: #9e9e9e;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.filter-container {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#sortOrder {
+    padding: 10px;
+    background-color: #1e3a66;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0;
+}
+
+#sortOrder option {
+    background-color: white;
+    color: #1e3a66;
+}
+
+#sortOrder::-ms-expand {
+    display: none;
+}
+
+#sortOrder::after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#roomDetails {
+    text-align: left;
+}
+
+#roomDetails h2 {
+    text-align: center;
+}
+
+#roomDetails .info-detail {
+    margin: 10px 0;
+}
+
