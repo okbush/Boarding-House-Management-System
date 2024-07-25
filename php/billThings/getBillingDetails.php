@@ -3,6 +3,7 @@ include '../mysql.php';
 
 $BillRefNo = $_GET['BillRefNo'];
 
+// Prepare SQL code to fetch billing details based on Bill Reference Number
 $stmtBillInfo = $conn->prepare("SELECT *, DATE_FORMAT(b.BillingMonth, '%M') AS 'Month'
                                 FROM billing b
                                 JOIN occupancy o ON b.OccupancyID = o.OccupancyID
@@ -15,44 +16,34 @@ $stmtBillInfo->execute();
 $resultBillInfo = $stmtBillInfo->get_result();
 $rowBillInfo = $resultBillInfo->fetch_assoc();
 
+
+
 // Check if the result is not null
 if ($rowBillInfo) {
-    echo '
-    <div>
-        <div class="modal-header">
-            <span class="close">&times;</span>
-        </div>
-        
-        <div class="modal-body">
+    echo '        
+            <h2><b>Bill Reference Number: ' . htmlspecialchars($rowBillInfo['BillRefNo']) . '</h2>
             <div class="modal-left">
-                <img src="../../icons/logo_invert.png" alt="Munoz Boarding House Logo">
-                <h2>Tenant Details</h2>
-                <p id="tenant-details">' . htmlspecialchars($rowBillInfo['TenFname'] . ' ' . $rowBillInfo['TenMname'] . ' ' . $rowBillInfo['TenBarangay']) . '<br>' . htmlspecialchars($rowBillInfo['TenCity']) . '<br>' . htmlspecialchars($rowBillInfo['TenProv']) . ', Philippines</p>
-                <p id="tenant-contact">' . htmlspecialchars($rowBillInfo['TenConNum']) . '<br>' . htmlspecialchars($rowBillInfo['TenEmail']) . '</p>
+            <br>
+                <h4><b>Tenant Details<b></h4>
+                <p>Name: ' . htmlspecialchars($rowBillInfo['TenFname'] . ' ' . $rowBillInfo['TenMname'] . ' ' . $rowBillInfo['TenLname']) . '</p>
+                <p>Address: ' . htmlspecialchars($rowBillInfo['TenBarangay']) . ' ' . htmlspecialchars($rowBillInfo['TenCity']) . ' ' . htmlspecialchars($rowBillInfo['TenProv']) . ', Philippines</p>
+                <p>Contact Number: ' . htmlspecialchars($rowBillInfo['TenConNum']) . '</p>
+                <p>Email: ' . htmlspecialchars($rowBillInfo['TenEmail']) . '</p>
             </div>
+
             <div class="modal-right">
-                <h2>Bill Reference Number: ' . htmlspecialchars($rowBillInfo['BillRefNo']) . '</h2>
                 <table class="bill-table">
-                    <tr>
-                        <td>Tenant ID</td>
-                        <td>' . htmlspecialchars($rowBillInfo['TenantID']) . '</td>
-                        <td>Bill Date Issued</td>
-                        <td>' . htmlspecialchars($rowBillInfo['BillDateIssued']) . '</td>
-                    </tr>
-                    <tr>
-                        <td>Room</td>
-                        <td>' . htmlspecialchars($rowBillInfo['RoomID']) . '</td>
-                        <td>Bill Date Due</td>
-                        <td>' . htmlspecialchars($rowBillInfo['BillDueDate']) . '</td>
-                    </tr>
-                    <tr>
-                        <td>Bill Month</td>
-                        <td>' . htmlspecialchars($rowBillInfo['Month']) . '</td>
-                        <td>Payment Status</td>
-                        <td>' . htmlspecialchars($rowBillInfo['BillStatus']) . '</td>
-                    </tr>
+                <br>
+                <h4><b>Bill Details<b></h4>
+                        
+                        <p>Bill Date Issued: ' . htmlspecialchars($rowBillInfo['BillDateIssued']) . '</p>
+                        <p>Room: ' . htmlspecialchars($rowBillInfo['RoomID']) . '</p>
+                        <p>Bill Date Due: ' . htmlspecialchars($rowBillInfo['BillDueDate']) . '</p>
+                        <p>Date For: ' . htmlspecialchars($rowBillInfo['Month']) . '</p>
+                        <p>Payment Status: ' . htmlspecialchars($rowBillInfo['BillStatus']) . '</p>
                 </table>
-                <h3>Rent</h3>
+
+                <h3><b>Rent</b></h3>
                 <table class="details-table">
                     <tr>
                         <td>Occupancy Rate</td>
@@ -80,10 +71,9 @@ if ($rowBillInfo) {
                         <td>Php ' . htmlspecialchars($rowBillInfo['DueAmount']) . '</td>
                     </tr>
                 </table>
-            </div>
-        </div>
     </div>';
 } else {
+    // Output message if no billing details are found for the provided reference number
     echo 'No billing details found for the provided reference number.';
 }
 ?>
