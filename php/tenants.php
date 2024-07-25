@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <!-- sidebar navigation -->
+    <!-- Sidebar Navigation -->
     <div class="sidebar">
         <div class="logo">
             <img src="icons/logo.png" alt="Munoz Boarding House Logo">
@@ -24,8 +24,7 @@
 
         <ul class="w-100">
             <li><a href="dashboard.php"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Dashboard</a></li>
-            <li><a href="tenants.php" class="active"><i class="fa fa-address-book-o" aria-hidden="true"></i> Tenants</a>
-            </li>
+            <li><a href="tenants.php" class="active"><i class="fa fa-address-book-o" aria-hidden="true"></i> Tenants</a></li>
             <li><a href="roomLogs/index.php"><i class="fa fa-bed" aria-hidden="true"></i> Rooms</a></li>
             <li><a href="billing.php"><i class="fa fa-credit-card" aria-hidden="true"></i> Billings</a></li>
             <li><a href="settings.php"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
@@ -39,7 +38,7 @@
                 <p>View list of tenants and detailed tenant information!</p>
 
                 <div class="buttons">
-                    <!-- add tenant modal -->
+                    <!-- Add Tenant Modal -->
                     <button id="addTenant">Add Tenant</button>
                     <div id="Tenadd" class="modal">
                         <div class="modal-content">
@@ -104,7 +103,7 @@
                         </div>
                     </div>
 
-                    <!-- create occupancy modal -->
+                    <!-- Create Occupancy Modal -->
                     <button id="addRent">Create Occupancy</button>
                     <div id="Rentadd" class="modal">
                         <div class="modal-content">
@@ -115,10 +114,10 @@
                                 <select id="tenantID" name="TenantID" required>
                                     <option value="" disabled selected>Select Tenant</option>
 
-                                    <!-- PHP code to fetch tenants without active occupancy -->
                                     <?php
                                     include 'mysql.php';
 
+                                    // SQL code to fetch tenants without active occupancy
                                     $sql = "SELECT DISTINCT t.TenantID, CONCAT(t.TenFname, ' ', t.TenMname, ' ', t.TenLname) AS name
                                         FROM tenant t
                                         LEFT JOIN occupancy o ON t.TenantID = o.TenantID
@@ -144,10 +143,10 @@
                                 <select id="occupancy-type" name="occupancy-type" onchange="RentFunctions()" required>
                                     <option value="" disabled selected>Select Occupancy Type</option>
 
-                                    <!-- PHP code to fetch occupancy types -->
                                     <?php
                                     include 'mysql.php';
 
+                                    // SQL query to fetch occupancy types and their rates
                                     $sql = "SELECT Occtype, OccRate FROM occtype";
                                     $result = $conn->query($sql);
 
@@ -166,10 +165,10 @@
                                     <select id="bedspacer" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
-                                        <!-- PHP code to fetch empty/shared rooms -->
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch empty or shared rooms
                                         $sql = "SELECT RoomID, Capacity, NumofTen, RoomType FROM rooms WHERE RoomType = 'Empty' OR RoomType = 'Shared'";
                                         $result = $conn->query($sql);
 
@@ -193,10 +192,10 @@
                                     <select id="room4" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
-                                        <!-- PHP code to fetch empty rooms -->
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch empty rooms with capacity of 4
                                         $sql = "SELECT RoomID, Capacity, NumofTen, RoomType FROM rooms WHERE RoomType = 'Empty' AND Capacity = '4'";
                                         $result = $conn->query($sql);
 
@@ -216,10 +215,10 @@
                                     <select id="room6" name="RoomID">
                                         <option value="" disabled selected>Select Room</option>
 
-                                        <!-- PHP code to fetch empty rooms -->
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch empty rooms with capacity of 6
                                         $sql = "SELECT RoomID, Capacity, NumofTen, RoomType FROM rooms WHERE RoomType = 'Empty' AND Capacity = '6'";
                                         $result = $conn->query($sql);
 
@@ -242,6 +241,7 @@
                                         <?php
                                         include 'mysql.php';
 
+                                        // SQL query to fetch active sharers                                        
                                         $sql = "SELECT CONCAT(t.TenFname, ' ', t.TenMname, ' ', t.TenLname) AS name, r.Capacity, r.NumofTen, r.RoomID
                                         FROM occupancy o JOIN tenant t ON o.TenantID = t.TenantID JOIN rooms r ON o.RoomID = r.RoomID
                                         WHERE (o.OccStatus = 'Active' AND o.Occtype = 'Room(4 beds)') OR (o.OccStatus = 'Active' AND o.Occtype = 'Room(6 beds)')
@@ -290,7 +290,7 @@
                     LEFT JOIN occupancy o ON t.TenantID = o.TenantID
                     WHERE t.TenantID LIKE ? OR CONCAT(t.TenFname, ' ', t.TenMname, ' ', t.TenLname) LIKE ?
                     GROUP BY t.TenantID
-                    ORDER BY name ASC"; // Sorting by name
+                    ORDER BY name ASC"; 
 
                 $stmt = $conn->prepare($sql);
                 $searchTerm = "%$search%";
@@ -337,6 +337,7 @@
         document.getElementById("addTenant").addEventListener("click", addTenant);
         document.getElementById("addRent").addEventListener("click", addRent);
 
+        // Function to open Add Tenant Modal
         function addTenant() {
             var modal = document.getElementById("Tenadd");
             var span = modal.getElementsByClassName("close")[0];
@@ -352,6 +353,7 @@
             }
         }
 
+        // Function to open Create Occupancy Modal
         function addRent() {
             var modal = document.getElementById("Rentadd");
             var span = modal.getElementsByClassName("close")[0];
@@ -367,6 +369,7 @@
             }
         }
 
+        // Function to update Payment Total based on selected Occupancy Type
         function updatePaymentTotal() {
             var occTypeSelect = document.getElementById("occupancy-type");
             var selectedType = occTypeSelect.options[occTypeSelect.selectedIndex].value;
@@ -393,11 +396,13 @@
             xhr.send();
         }
 
+        // Function to handle various form displays based on Occupancy Type
         function RentFunctions() {
             updatePaymentTotal();
             toggleRoomerForm();
         }
 
+        // Function to toggle form display based on Occupancy Type
         function toggleRoomerForm() {
             var occupancyType = document.getElementById("occupancy-type").value;
             var sharerForm = document.getElementById("sharer");
@@ -453,6 +458,7 @@
             }
         }
 
+        // Function to open Room Details Modal
         function openModal(roomID) {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
@@ -483,6 +489,7 @@
             xhr.send();
         }
 
+        // Function to close Room Details Modal
         function closeModal() {
             document.getElementById("roomModal").style.display = "none";
         }
