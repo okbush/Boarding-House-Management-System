@@ -28,7 +28,7 @@
             <li><a href="tenants.php"><i class="fa fa-address-book-o" aria-hidden="true"></i> Tenants</a></li>
             <li><a href="roomLogs/index.php"><i class="fa fa-bed" aria-hidden="true"></i> Rooms</a></li>
             <li><a href="billing.php"><i class="fa fa-credit-card" aria-hidden="true"></i> Billings</a></li>
-            <li><a href="settings.php"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+            <li><a href="settingsThings/settings.php"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
         </ul>
 
     </div>
