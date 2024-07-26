@@ -25,6 +25,7 @@ $result->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenants</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mallanna&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/tenants-styles.css">
     <link rel="stylesheet" href="../styles/billing-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,15 +48,12 @@ $result->close();
 
     <ul class="w-100">
         <li><a href="../dashboard.php"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Dashboard</a></li>
-        <li><a href="../tenantTable.php" class="active"><i class="fa fa-address-book-o" aria-hidden="true"></i>Tenants</a></li>
-        <li><a href="../tenants.php"><i class="fa fa-bed" aria-hidden="true"></i> Room Logs</a></li>
-        <li><a href="#bills"><i class="fa fa-credit-card" aria-hidden="true"></i> Billings</a></li>
+        <li><a href="../tenants.php" class="active"><i class="fa fa-address-book-o" aria-hidden="true"></i> Tenants</a></li>
+        <li><a href="../tenants.php"><i class="fa fa-bed" aria-hidden="true"></i> Rooms</a></li>
+        <li><a href="../billing.php"><i class="fa fa-credit-card" aria-hidden="true"></i> Billings</a></li>
         <li><a href="../settings.php"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
     </ul>
 
-    <div class="signout">
-        <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a>
-    </div>
 </div>
 
 <div class="Content">
@@ -63,7 +61,7 @@ $result->close();
 
         <div class="cardN">
             <div class="cardN-header">
-                <h5 class="cardN-title mb-0">Profile Settings</h5>
+                <h4 class="cardN-title mb-0">Profile Settings</h4>
             </div>
 
             <div class="list-group list-group-flush">
@@ -76,7 +74,7 @@ $result->close();
                 <a class="list-group-item list-group-item-action" data-toggle="tab" href="#billings">
                     Billings
                 </a>
-                <a class="list-group-item list-group-item-action" href="../tenantTable.php">
+                <a class="list-group-item list-group-item-action" href="../tenants.php">
                     Back
                 </a>
             </div>
@@ -116,11 +114,6 @@ $result->close();
 
                 echo '<div class="cardN">
 
-                    <div class="cardN-header">
-                        <h5 class="cardN-title mb-0">Profile Settings</h5>
-                    </div>
-
-                    
                     <div class="cardN-body">
                         <form action="updateTenants.php" method="POST">
                         <input type="hidden" name="TenantID" value="'. $row["TenantID"]. '">
