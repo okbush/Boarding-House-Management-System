@@ -19,11 +19,13 @@ $EmConLname = filter_input(INPUT_POST, 'EmConLname', FILTER_SANITIZE_STRING);
 $EmConMname = filter_input(INPUT_POST, 'EmConMname', FILTER_SANITIZE_STRING);
 $EmConNum = filter_input(INPUT_POST, 'EmConNum', FILTER_SANITIZE_NUMBER_INT);
 
+// Prepare SQL statement
 $sql = "INSERT INTO TENANT (TenFname, TenLname, TenMname, TenHouseNum, TenSt, TenBarangay, TenCity, TenProv, TenConNum, TenEmail, TenBdate, TenGender, EmConFname, EmConLname, EmConMname, EmConNum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ssssssssssssssss', $TenFname, $TenLname, $TenMname, $TenHouseNum, $TenSt, $TenBarangay, $TenCity, $TenProv, $TenConNum, $TenEmail, $TenBdate, $TenGender, $EmConFname, $EmConLname, $EmConMname, $EmConNum);
 $stmt->execute();
 
+// Redirect to tenants.php
 header('Location: ..\tenants.php');
 exit;
 ?>
