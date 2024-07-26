@@ -6,6 +6,7 @@ body {
     font-family: 'Mallanna', Arial, sans-serif;
     background: url('login_background.png') no-repeat center center fixed;
     background-size: cover;
+    user-select: none;
 }
 
 .login-container {
@@ -17,43 +18,43 @@ body {
 
 .login-box {
     background-color: #344799;
-    padding: 20px 30px; /* Adjusted padding for a more compact look */
+    padding: 20px 30px; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     color: #fff;
-    width: 350px; /* Adjusted width to match the provided image */
+    width: 350px; 
 }
 
 .logo-container {
     text-align: center;
-    margin-bottom: 10px; /* Adjusted for better spacing */
-    margin-top: 10%; /* Adjusted for better alignment */
+    margin-bottom: 10px; 
+    margin-top: 10%; 
 }
 
 .logo {
-    width: 250px; /* Adjusted width for the logo */
+    width: 300px; 
 }
 
 .login-box h2 {
     font-size: 24px;
-    margin-bottom: 20px; /* Ensuring consistent spacing */
+    margin-bottom: 20px; 
 }
 
 .login-box input[type="text"],
 .login-box input[type="password"] {
-    width: calc(100% - 20px); /* Adjusted width to ensure padding is considered */
+    width: calc(100% - 20px); 
     padding: 10px;
     margin: 10px 0 ;
     border: none;
     border-radius: 5px;
     color: #333;
-    box-sizing: border-box; /* Ensures padding is included in the total width */
+    box-sizing: border-box; 
 
 }
 
 .login-box button {
-    width: calc(100% - 20px); /* Adjusted width to ensure padding is considered */
+    width: calc(100% - 20px); 
     padding: 10px;
     background-color: #172564;
     color: #fff;
@@ -62,7 +63,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
-    box-sizing: border-box; /* Ensures padding is included in the total width */
+    box-sizing: border-box; 
 
 }
 
